@@ -1,0 +1,13 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Runner.cs">
+    <Files>
+      <File FileName="Assets\Scripts\Runner.cs" Line="72" Column="69" />
+      <File FileName="..\..\Tutorial05 - Buttons  Levels\Tutorial05 - Buttons &amp; Levels\Assets\Scripts\Megaman.cs" Line="74" Column="4" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
