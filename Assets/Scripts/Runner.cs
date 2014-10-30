@@ -29,6 +29,10 @@ public class Runner : MonoBehaviour {
 	void FixedUpdate()
 	{
 		float move = Input.GetAxis("Horizontal");
+
+        if (move < 0)
+            move = 1;
+
 		if (move > 0 || move < 0) {
 			if(maxSpeed >= 10f)
 			{
