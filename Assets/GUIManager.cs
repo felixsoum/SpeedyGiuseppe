@@ -2,7 +2,8 @@
 
 public class GUIManager : MonoBehaviour {
 	
-	public GUIText gameOverText, instructionsText, runnerText;
+	public GUIText gameOverText, instructionsText, runnerText, romeotext;
+    public GameObject romeo;
 
 	void Start () {
 		GameEventManager.GameStart += GameStart;
@@ -20,7 +21,9 @@ public class GUIManager : MonoBehaviour {
 		gameOverText.enabled = false;
 		instructionsText.enabled = false;
 		runnerText.enabled = false;
+        romeotext.enabled = false;
 		enabled = false;
+
 	}
 
 	private void GameOver () {
