@@ -46,11 +46,14 @@ public class PlatformManager : MonoBehaviour {
 		
 		Vector3 position = nextPosition;
 		position.x += scale.x * 0.5f;
+		position.y = transform.position.y - 0.5f;
 		position.y += scale.y * 0.5f;
 		
 		Transform o = objectQueue.Dequeue();
 		o.localScale = scale;
 		o.localPosition = position;
+		o.rotation = Quaternion.identity;
+		o.rigidbody2D.velocity = Vector2.zero;
 		objectQueue.Enqueue(o);
 		
 		nextPosition += new Vector3(

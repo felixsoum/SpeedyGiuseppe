@@ -23,6 +23,7 @@ public class Runner : MonoBehaviour {
 		renderer.enabled = false;
 		rigidbody2D.isKinematic = true;
 		enabled = false;
+		gameOverY = float.MinValue;
 	}
 
 	void FixedUpdate()
@@ -31,13 +32,14 @@ public class Runner : MonoBehaviour {
 		if (move > 0 || move < 0) {
 			if(maxSpeed >= 10f)
 			{
-				if(maxSpeed >= 40f)
+				if(maxSpeed >= float.MaxValue)
 				{
 					maxSpeed+= 0.001f;
 				}
 				else
 				{
 					maxSpeed+= 0.1f;
+					maxSpeed*= 1.001f;
 				}
 			}
 			else
@@ -46,7 +48,7 @@ public class Runner : MonoBehaviour {
 				maxSpeed+=1f;
 			}
 		} else {
-			maxSpeed = 1f;
+			maxSpeed/= 1.1f;
 		}
 		rigidbody2D.velocity = new Vector2(move * maxSpeed, rigidbody2D.velocity.y);
 		
@@ -64,14 +66,15 @@ public class Runner : MonoBehaviour {
 			rigidbody2D.AddForce(new Vector2(0,500f));
 			jump = true;
 			counter = 45;
-			maxSpeed = 1f;
+//			maxSpeed = 1f;
 		} 
 		distanceTraveled = transform.localPosition.x;
 		
 		if(transform.localPosition.y < gameOverY){
 			GameEventManager.TriggerGameOver();
 		}
-
+		rigidbody2D.gravityScale = 1 + maxSpeed*transform.position.y/1000f;
+		transform.localScale = new Vector3(1 + maxSpeed/100f, Mathf.Max(1 - maxSpeed/1000f, 0.1f), 1);
 	}
 
 	private void GameStart () {
